@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 from urllib.request import quote
-#quote()函数，可以帮我们把内容转为标准的url格式，作为网址的一部分打开
-movie = input('请输入你想搜索的电影：')
+#quote() can help us convert the content into a standard URL format and open it as part of the web address
+movie = input('Please enter the movie you want to search：')
 gbk = movie.encode('gbk')
 url = 'http://s.ygdy8.com/plus/so.php?typeid=1&keyword='+quote(gbk)
 web = requests.get(url)
@@ -17,4 +17,4 @@ for i in part:
     download_ana = BeautifulSoup(download_web.text,'html.parser')
     download_add = download_ana.find(style='WORD-WRAP: break-word')
     address = download_add.find('a')['href']
-    print('电影名：{}\n下载链接：{}'.format(name.text,address))
+    print('Movie：{}\nLink：{}'.format(name.text,address))
