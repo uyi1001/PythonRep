@@ -1,0 +1,23 @@
+8.11
+# In the data science, there exists the concept of stemming, which is heuristic of chopping off the end of a word to clean and bucket it into an easier feature set.
+# Given a dictionary consisting of many roots and a sentence, write a function replace_words to stem all the words in the sentence with the root forming it. If a word has many roots that can form it, replace it with the root with the sortest length.
+Example:
+Input:
+root = ["cat", "bat", "rat"]
+sentence = "the cattle was rattled by the battery"
+Output:
+"the cat was rat by the bat"
+
+def replace_words(root, sentence):
+  words = sentence.split()
+  j=0
+  while j<len(words):
+    i = 0
+    while i<len(words[j]):
+      if words[j][:i] in roots:
+        words[j] = words[j][:i]
+        i = len(words[j])
+      i = i+1
+    j = j+1
+  new_sentence = " ".join(words)
+  return(new_sentence)
