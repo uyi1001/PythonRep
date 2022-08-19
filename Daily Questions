@@ -21,3 +21,31 @@ def replace_words(root, sentence):
     j = j+1
   new_sentence = " ".join(words)
   return(new_sentence)
+
+
+8.18
+# Write a function find_change to find the minimum number of coins that make up the given amount of change cents.
+# Assume we only have coins of value 1,5,10, and 25 cents.
+Example:
+Input:
+cents = 73
+Output:
+def find_change(cents) -> 7
+#(25+25+10+10+1+1+1)
+
+def minimum_change(cents):
+  count = 0
+  while cents != 0:
+    if cents >= 25:
+      count +=1
+      cents -=25
+    elif cents >=10:
+      count +=1
+      cents -=10
+    elif cents >= 5:
+      count +=1
+      cents -=5
+    elif cents >=1:
+      count +=1
+      cents -=1
+  return count
