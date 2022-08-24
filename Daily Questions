@@ -49,3 +49,29 @@ def minimum_change(cents):
       count +=1
       cents -=1
   return count
+  
+  
+  8.23
+  # You have an array of integers of length n spanning 0 to n with one missing.
+  # Write a function missing_number that returns the missing number in the array.
+  # Note: Complexity of O(N) required.
+  
+  Example:
+  Imput:
+  nums = [0, 1, 2, 4, 5]
+  missing_number(nums) -> 3
+  
+  def missing_number(nums):
+    num_set = set(nums)
+    n = len(nums) + 1
+    for number in range(n):
+      if number not in num_set:
+        return number
+
+def missing_number(nums):
+  n = len(nums)
+  total = n*(n+1)/2
+  sum_of_nums = sum(nums)
+  return total - sum_of_nums
+  
+  
