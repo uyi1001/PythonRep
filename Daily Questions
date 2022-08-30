@@ -84,6 +84,16 @@ Input:
 array = [0,5,4,2,0,3]
 def move_zeros_back(array) -> [5,4,2,3,0,0]
 
+def move_zeros_back(array):
+  non_zeros = 0
+  for i in range (len(array)):
+    if array[i] == 0:
+      while array[non_zeros] == 0:
+        non_zeros += 1
+        if non_zeros >= len(array):
+          return array
+      array[non_seros], array[i] = array[i], array[non_zeros]
+  return array
 
 
 
