@@ -95,5 +95,16 @@ def move_zeros_back(array):
       array[non_zeros], array[i] = array[i], array[non_zeros]
   return array
 
+numpy solution:
+import numpy as np
+
+def move_zeros_back(array):
+    for i in array:
+        if array[i] == 0:
+            array.append(array.pop(i))
+    return array
+
+
+
 
 
