@@ -131,4 +131,27 @@ grade             test_score              percentage
 11                <90                     50%
 11                <100                    100%
 
+import pandas as pd
+def bucket_test_scores(df):
+  bins = [0, 50, 75, 90, 100]
+  labels = ['<50', '<75', '<90', '<100']
+  df['test_score'] = pd.cut(df['test_score'], bins, labels=labels)
+  
+  df = (df
+    .groupby(['grade', 'test_score']).agg({'user_id':'count'})
+    .fillna(0)
+    .groupby(['grade']).apply(lambda x:100 * x/float(x.sum()))
+    .groupby(['grade']).cumsum()
+    .reset_index())
+    
+    df['percentage'] = df.user_id.astype(int).astype(str) + '%'
+    df.drop(columns = 'user_id', inplace = True)
+    return df
+    
+    
+8.31
+There are two lists of dictionaries representing friendship beginnings and endings: friends_added and friends_removed.
+Each dictionary contains the user_id and created_at time of the friendship beginning/ending.
+Write a function friendship_timeline to generate an output that lists the pairs of friends with their corresponding timestamps of the friendship beginning and then the timestamp of the friendship ending.
+Note: There can be multiple instances over time when two people became friends and unfriended; only output lists when a corresponding friendship was removed.
 
