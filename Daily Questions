@@ -183,6 +183,16 @@ test_list = [6,7,3,9,10,15]
 Output:
 get_variance(test_list) -> 13.89
 
-
+def get_variance(li):
+  sum = length = var = 0
+  for x in li:
+    sum += x
+    length += 1
+  xbar = sum/length
+  for x in li:
+    var += (x-xbar)**2
+  return var/length
+test_list = [6,7,3,9,10,15]
+get_variance(test_list)
 
 
