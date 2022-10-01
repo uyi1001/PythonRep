@@ -196,3 +196,4 @@ test_list = [6,7,3,9,10,15]
 get_variance(test_list)
 
 
+
