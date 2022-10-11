@@ -196,3 +196,29 @@ test_list = [6,7,3,9,10,15]
 get_variance(test_list)
 
 
+10.10
+You're given two dataframes. One contains information about addresses and the other contains relationships between various cities and states:
+
+Examples:
+df_addresses
+Address
+4860 Sunset Boulevard, San Francisco, 94105
+3055 Paradise Lane, Salt Lake City, 84103
+9001 Cascade Road, Kansas City, 64102
+5853 Leon Street, Tampa, 33605
+
+df_cities
+City                State
+Salt Lake City      Utah
+Kansas City         Missouri
+Detroit             Michigan
+Tampa               Florida
+San Francisco       California
+
+Write a function complete_address to create a single dataframe with complete addresses in the format of street, city, state, zip code.
+
+
+
+
+
+
